@@ -1,4 +1,4 @@
-package aiss.dailymotionminer.model.videoMinerObjects;
+package aiss.dailymotionminer.models.videoMinerObjects;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 import jakarta.persistence.Entity;
