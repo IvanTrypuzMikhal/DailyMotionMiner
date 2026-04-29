@@ -1,47 +1,27 @@
 package aiss.dailymotionminer.models.videoMinerObjects;
 
-import com.fasterxml.jackson.annotation.JsonProperty;
-import jakarta.persistence.*;
-import jakarta.validation.constraints.NotEmpty;
-
+import java.util.ArrayList;
 import java.util.List;
 
-/**
- * @author Juan C. Alonso
- */
-@Entity
-@Table(name = "Video")
 public class VMVideo {
 
-    @Id
-    @JsonProperty("id")
     private String id;
-
-    @JsonProperty("name")
-    @NotEmpty(message = "Video name cannot be empty")
     private String name;
-
-    @JsonProperty("description")
-    @Column(columnDefinition="TEXT")
     private String description;
-
-    @JsonProperty("releaseTime")
-    @NotEmpty(message = "Video release time cannot be empty")
     private String releaseTime;
-
-    @JsonProperty("user")
-    @OneToOne(cascade = CascadeType.ALL)
     private VMUser author;
+    private List<VMComment> VMComments = new ArrayList<>();
+    private List<VMCaption> VMCaptions = new ArrayList<>();
 
-    @JsonProperty("comments")
-    @OneToMany(cascade = CascadeType.ALL)
-    @JoinColumn(name = "videoId")
-    private List<VMComment> VMComments;
-
-    @JsonProperty("captions")
-    @OneToMany(cascade = CascadeType.ALL)
-    @JoinColumn(name = "videoId")
-    private List<VMCaption> VMCaptions;
+    public VMVideo(String id, String name, String description, String releaseTime, VMUser author, List<VMComment> VMComments, List<VMCaption> VMCaptions) {
+        this.id = id;
+        this.name = name;
+        this.description = description;
+        this.releaseTime = releaseTime;
+        this.author = author;
+        this.VMComments = VMComments;
+        this.VMCaptions = VMCaptions;
+    }
 
     public String getId() {
         return id;
@@ -82,7 +62,7 @@ public class VMVideo {
     public void setAuthor(VMUser author) {
         this.author = author;
     }
-    
+
     public List<VMComment> getComments() {
         return VMComments;
     }

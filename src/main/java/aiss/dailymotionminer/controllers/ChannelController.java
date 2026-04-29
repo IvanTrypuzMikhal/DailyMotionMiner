@@ -1,30 +1,32 @@
-/**
- * Autor: Noah Karst
- * Matrikelnummer: 21683
- * Umgebung: IntelliJ, Win11
- * Datum: 14.12.2025
- */
-
 package aiss.dailymotionminer.controllers;
 
 import aiss.dailymotionminer.models.videoMinerObjects.VMChannel;
+import aiss.dailymotionminer.services.DailymotionService;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 @RestController
-@RequestMapping("/peertube/channel")
+@RequestMapping("/dailymotion")
 public class ChannelController {
 
-
     @Autowired
-    public ChannelService channelService;
+    private DailymotionService dailymotionService;
 
-    @GetMapping("/{channelName}")
-    public VMChannel getChannel(@PathVariable String channelName){
-        return channelService.buildChannel(channelName);
+    @GetMapping("/{id}")
+    public VMChannel getChannel(
+            @PathVariable String id,
+            @RequestParam(required = false) Integer maxVideos,
+            @RequestParam(required = false) Integer maxPages
+    ) {
+        return dailymotionService.getChannel(id, maxVideos, maxPages);
     }
 
+    @PostMapping("/{id}")
+    public VMChannel sendChannelToVideoMiner(
+            @PathVariable String id,
+            @RequestParam(required = false) Integer maxVideos,
+            @RequestParam(required = false) Integer maxPages
+    ) {
+        return dailymotionService.sendChannelToVideoMiner(id, maxVideos, maxPages);
+    }
 }

@@ -1,34 +1,24 @@
 package aiss.dailymotionminer.models.videoMinerObjects;
 
-import com.fasterxml.jackson.annotation.JsonProperty;
-import jakarta.persistence.*;
-
-/**
- * @author Juan C. Alonso
- */
-@Entity
-@Table(name = "VMUser")
 public class VMUser {
 
-    @Id
-    @JsonProperty("id")
-    @GeneratedValue(strategy = GenerationType.AUTO)
-    private Long id;
-
-    @JsonProperty("name")
+    private String id;
     private String name;
-
-    @JsonProperty("user_link")
     private String user_link;
-
-    @JsonProperty("picture_link")
     private String picture_link;
 
-    public Long getId() {
+    public VMUser(String id, String name, String user_link, String picture_link) {
+        this.id = id;
+        this.name = name;
+        this.user_link = user_link;
+        this.picture_link = picture_link;
+    }
+
+    public String getId() {
         return id;
     }
 
-    public void setId(Long id) {
+    public void setId(String id) {
         this.id = id;
     }
 

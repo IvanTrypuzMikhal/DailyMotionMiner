@@ -12,7 +12,7 @@ import com.fasterxml.jackson.annotation.JsonPropertyOrder;
         "created_time"
 })
 
-public class DMOwner {
+public class DMChannel {
 
     @JsonProperty("id")
     private String id;
@@ -66,7 +66,7 @@ public class DMOwner {
     @Override
     public String toString() {
         StringBuilder sb = new StringBuilder();
-        sb.append(aiss.dailymotionminer.models.dailymotionminerobjects.DMOwner.class.getName()).append('@').append(Integer.toHexString(System.identityHashCode(this))).append('[');
+        sb.append(DMChannel.class.getName()).append('@').append(Integer.toHexString(System.identityHashCode(this))).append('[');
         sb.append("id");
         sb.append('=');
         sb.append(((this.id == null)?"<null>":this.id));

@@ -1,19 +1,11 @@
 package aiss.dailymotionminer.models.dailymotionminerobjects;
 
-import javax.annotation.processing.Generated;
-import com.fasterxml.jackson.annotation.JsonInclude;
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonProperty;
-import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 
+import java.util.List;
 
-@JsonInclude(JsonInclude.Include.NON_NULL)
-@JsonPropertyOrder({
-    "id",
-    "title",
-    "channel",
-    "owner"
-})
-@Generated("jsonschema2pojo")
+@JsonIgnoreProperties(ignoreUnknown = true)
 public class DMVideo {
 
     @JsonProperty("id")
@@ -22,100 +14,70 @@ public class DMVideo {
     private String title;
     @JsonProperty("channel")
     private String channel;
-    @JsonProperty("owner")
-    private String owner;
     @JsonProperty("description")
     private String description;
     @JsonProperty("created_time")
-    private String created_time;
+    private String createdTime;
+    @JsonProperty("tags")
+    private List<String> tags;
 
-
-    @JsonProperty("id")
     public String getId() {
         return id;
     }
 
-    @JsonProperty("id")
     public void setId(String id) {
         this.id = id;
     }
 
-    @JsonProperty("title")
     public String getTitle() {
         return title;
     }
 
-    @JsonProperty("title")
     public void setTitle(String title) {
         this.title = title;
     }
 
-    @JsonProperty("channel")
     public String getChannel() {
         return channel;
     }
 
-    @JsonProperty("channel")
     public void setChannel(String channel) {
         this.channel = channel;
     }
 
-    @JsonProperty("owner")
-    public String getOwner() {
-        return owner;
+    public String getDescription() {
+        return description;
     }
 
-    @JsonProperty("owner")
-    public void setOwner(String owner) {
-        this.owner = owner;
+    public void setDescription(String description) {
+        this.description = description;
     }
 
-    @JsonProperty("description")
-    public String getDescription() { return description;}
+    public String getCreatedTime() {
+        return createdTime;
+    }
 
-    @JsonProperty("description")
-    public void setDescription(String description) { this.description = description;}
+    public void setCreatedTime(String createdTime) {
+        this.createdTime = createdTime;
+    }
 
-    @JsonProperty("created_time")
-    public String getCreatedTime() { return created_time;}
+    public List<String> getTags() {
+        return tags;
+    }
 
-    @JsonProperty("created_time")
-    public void setCreatedTime(String created_time) { this.created_time = created_time;}
+    public void setTags(List<String> tags) {
+        this.tags = tags;
+    }
 
     @Override
     public String toString() {
-        StringBuilder sb = new StringBuilder();
-        sb.append(DMVideo.class.getName()).append('@').append(Integer.toHexString(System.identityHashCode(this))).append('[');
-        sb.append("id");
-        sb.append('=');
-        sb.append(((this.id == null)?"<null>":this.id));
-        sb.append(',');
-        sb.append("title");
-        sb.append('=');
-        sb.append(((this.title == null)?"<null>":this.title));
-        sb.append(',');
-        sb.append("channel");
-        sb.append('=');
-        sb.append(((this.channel == null)?"<null>":this.channel));
-        sb.append(',');
-        sb.append("owner");
-        sb.append('=');
-        sb.append(((this.owner == null)?"<null>":this.owner));
-        sb.append(',');
-        sb.append("description");
-        sb.append('=');
-        sb.append(((this.description == null)?"<null>":this.description));
-        sb.append(',');
-        sb.append("created_time");
-        sb.append('=');
-        sb.append(((this.created_time == null)?"<null>":this.created_time));
-        sb.append(',');
-        if (sb.charAt((sb.length()- 1)) == ',') {
-            sb.setCharAt((sb.length()- 1), ']');
-        } else {
-            sb.append(']');
-        }
-        return sb.toString();
+        return "DMVideo{" +
+                "id='" + id + '\'' +
+                ", title='" + title + '\'' +
+                ", channel='" + channel + '\'' +
+                ", description='" + description + '\'' +
+                ", createdTime='" + createdTime + '\'' +
+                ", tags=" + tags +
+                '}';
     }
-
 }

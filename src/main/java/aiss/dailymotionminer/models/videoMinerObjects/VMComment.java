@@ -1,28 +1,16 @@
 package aiss.dailymotionminer.models.videoMinerObjects;
 
-import com.fasterxml.jackson.annotation.JsonProperty;
-import jakarta.persistence.Column;
-import jakarta.persistence.Entity;
-import jakarta.persistence.Id;
-import jakarta.persistence.Table;
-
-/**
- * @author Juan C. Alonso
- */
-@Entity
-@Table(name = "Comment")
 public class VMComment {
 
-    @Id
-    @JsonProperty("id")
     private String id;
-
-    @JsonProperty("text")
-    @Column(columnDefinition="TEXT")
     private String text;
-
-    @JsonProperty("createdOn")
     private String createdOn;
+
+    public VMComment(String id, String text, String createdOn) {
+        this.id = id;
+        this.text = text;
+        this.createdOn = createdOn;
+    }
 
     public String getId() {
         return id;

@@ -1,44 +1,20 @@
 package aiss.dailymotionminer.models.videoMinerObjects;
 
-import com.fasterxml.jackson.annotation.JsonProperty;
-import jakarta.persistence.*;
-import jakarta.validation.constraints.NotEmpty;
-import jakarta.validation.constraints.NotNull;
-
-import java.util.ArrayList;
 import java.util.List;
 
-/**
- * @author Juan C. Alonso
- */
-@Entity
-@Table(name = "Channel")
 public class VMChannel {
-
-    @Id
-    @JsonProperty("id")
     private String id;
-
-    @JsonProperty("name")
-    @NotEmpty(message = "Channel name cannot be empty")
     private String name;
-
-    @JsonProperty("description")
-    @Column(columnDefinition="TEXT")
     private String description;
-
-    @JsonProperty("createdTime")
-    @NotEmpty(message = "Channel creation time cannot be empty")
     private String createdTime;
-
-    @JsonProperty("videos")
-    @OneToMany(cascade = CascadeType.ALL)
-    @JoinColumn(name = "channelId")
-    @NotNull(message = "Channel videos cannot be null")
     private List<VMVideo> VMVideos;
 
-    public VMChannel() {
-        this.VMVideos = new ArrayList<>();
+    public VMChannel(String id, String name, String description, String createdTime, List<VMVideo> VMVideos) {
+        this.id = id;
+        this.name = name;
+        this.description = description;
+        this.createdTime = createdTime;
+        this.VMVideos = VMVideos;
     }
 
     public String getId() {

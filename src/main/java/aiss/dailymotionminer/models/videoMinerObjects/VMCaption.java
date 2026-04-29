@@ -1,27 +1,15 @@
 package aiss.dailymotionminer.models.videoMinerObjects;
 
-import com.fasterxml.jackson.annotation.JsonProperty;
-import jakarta.persistence.Entity;
-import jakarta.persistence.Id;
-import jakarta.persistence.Table;
-
-/**
- * @author Juan C. Alonso
- */
-@Entity
-@Table(name = "Caption")
 public class VMCaption {
-
-    @Id
-    @JsonProperty("id")
     private String id;
-
-    @JsonProperty("name")
-    private String name;
-
-    @JsonProperty("language")
+    private String link;
     private String language;
 
+    public VMCaption(String id, String link, String language) {
+        this.id = id;
+        this.link = link;
+        this.language = language;
+    }
 
     public String getId() {
         return id;
@@ -32,11 +20,11 @@ public class VMCaption {
     }
 
     public String getName() {
-        return name;
+        return link;
     }
 
     public void setName(String name) {
-        this.name = name;
+        this.link = name;
     }
 
     public String getLanguage() {
@@ -51,7 +39,7 @@ public class VMCaption {
     public String toString() {
         return "Caption{" +
                 "id='" + id + '\'' +
-                ", name='" + name + '\'' +
+                ", name='" + link + '\'' +
                 ", language='" + language + '\'' +
                 '}';
     }

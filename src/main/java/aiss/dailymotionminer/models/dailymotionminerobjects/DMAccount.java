@@ -12,7 +12,7 @@ import com.fasterxml.jackson.annotation.JsonPropertyOrder;
         "avatar_url"
 })
 
-public class DMUser {
+public class DMAccount {
 
     @JsonProperty("id")
     private String id;
@@ -66,7 +66,7 @@ public class DMUser {
     @Override
     public String toString() {
         StringBuilder sb = new StringBuilder();
-        sb.append(aiss.dailymotionminer.models.dailymotionminerobjects.DMUser.class.getName()).append('@').append(Integer.toHexString(System.identityHashCode(this))).append('[');
+        sb.append(DMAccount.class.getName()).append('@').append(Integer.toHexString(System.identityHashCode(this))).append('[');
         sb.append("id");
         sb.append('=');
         sb.append(((this.id == null)?"<null>":this.id));
