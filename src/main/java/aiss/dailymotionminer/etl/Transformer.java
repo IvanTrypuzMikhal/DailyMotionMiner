@@ -8,6 +8,10 @@ import java.util.List;
 
 public class Transformer {
 
+    private static String emptyToNull(String value) {
+        return (value == null || value.isBlank()) ? null : value;
+    }
+
     public static VMCaption captionTransformer(DMSubtitle dmSubtitle) {
         return new VMCaption(
                 dmSubtitle.getId(),
@@ -20,7 +24,7 @@ public class Transformer {
         return new VMChannel(
                 dmChannel.getId(),
                 dmChannel.getUsername(),
-                dmChannel.getDescription(),
+                emptyToNull(dmChannel.getDescription()),
                 dmChannel.getCreated_time(),
                 new ArrayList<>()
         );
@@ -32,7 +36,7 @@ public class Transformer {
         }
 
         return new VMUser(
-                dmUser.getId(),
+                (long)dmUser.getId().hashCode(),
                 dmUser.getUsername(),
                 dmUser.getUrl(),
                 dmUser.getAvatar_url()
@@ -67,7 +71,7 @@ public class Transformer {
         return new VMVideo(
                 dmVideo.getId(),
                 dmVideo.getTitle(),
-                dmVideo.getDescription(),
+                emptyToNull(dmVideo.getDescription()),
                 dmVideo.getCreatedTime(),
                 accountTransformer(dmOwner),
                 commentsFromTags(dmVideo),

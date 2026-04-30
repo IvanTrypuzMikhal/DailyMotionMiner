@@ -2,23 +2,23 @@ package aiss.dailymotionminer.models.videoMinerObjects;
 
 public class VMUser {
 
-    private String id;
+    private Long id;
     private String name;
     private String user_link;
     private String picture_link;
 
-    public VMUser(String id, String name, String user_link, String picture_link) {
+    public VMUser(Long id, String name, String user_link, String picture_link) {
         this.id = id;
         this.name = name;
         this.user_link = user_link;
         this.picture_link = picture_link;
     }
 
-    public String getId() {
+    public Long getId() {
         return id;
     }
 
-    public void setId(String id) {
+    public void setId(Long id) {
         this.id = id;
     }
 
