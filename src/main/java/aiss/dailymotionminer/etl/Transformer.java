@@ -1,6 +1,6 @@
 package aiss.dailymotionminer.etl;
 
-import aiss.dailymotionminer.models.dailymotionminerobjects.*;
+import aiss.dailymotionminer.models.dailyMotionObjects.*;
 import aiss.dailymotionminer.models.videoMinerObjects.*;
 
 import java.util.ArrayList;

@@ -1,4 +1,4 @@
-package aiss.dailymotionminer.models.dailymotionminerobjects;
+package aiss.dailymotionminer.models.dailyMotionObjects;
 
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;

@@ -1,7 +1,7 @@
 package aiss.dailymotionminer.services;
 
 import aiss.dailymotionminer.etl.Transformer;
-import aiss.dailymotionminer.models.dailymotionminerobjects.*;
+import aiss.dailymotionminer.models.dailyMotionObjects.*;
 import aiss.dailymotionminer.models.videoMinerObjects.*;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.http.ResponseEntity;

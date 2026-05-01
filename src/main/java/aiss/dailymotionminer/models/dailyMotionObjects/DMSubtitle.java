@@ -1,4 +1,4 @@
-package aiss.dailymotionminer.models.dailymotionminerobjects;
+package aiss.dailymotionminer.models.dailyMotionObjects;
 
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
@@ -53,7 +53,7 @@ public class DMSubtitle {
         @Override
         public String toString() {
             StringBuilder sb = new StringBuilder();
-            sb.append(aiss.dailymotionminer.models.dailymotionminerobjects.DMSubtitle.class.getName()).append('@').append(Integer.toHexString(System.identityHashCode(this))).append('[');
+            sb.append(aiss.dailymotionminer.models.dailyMotionObjects.DMSubtitle.class.getName()).append('@').append(Integer.toHexString(System.identityHashCode(this))).append('[');
             sb.append("id");
             sb.append('=');
             sb.append(((this.id == null)?"<null>":this.id));
