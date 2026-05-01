@@ -1,5 +1,6 @@
 package aiss.dailymotionminer.controllers;
 
+import aiss.dailymotionminer.exception.ChannelNotFoundException;
 import aiss.dailymotionminer.models.videoMinerObjects.VMChannel;
 import aiss.dailymotionminer.services.DailymotionService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -17,16 +18,26 @@ public class ChannelController {
             @PathVariable String id,
             @RequestParam(required = false) Integer maxVideos,
             @RequestParam(required = false) Integer maxPages
-    ) {
-        return dailymotionService.getChannel(id, maxVideos, maxPages);
+    ) throws ChannelNotFoundException {
+        try {
+            return dailymotionService.getChannel(id, maxVideos, maxPages);
+        } catch (Exception e) {
+            throw new ChannelNotFoundException();
+        }
+
     }
+
 
     @PostMapping("/{id}")
     public VMChannel sendChannelToVideoMiner(
             @PathVariable String id,
             @RequestParam(required = false) Integer maxVideos,
             @RequestParam(required = false) Integer maxPages
-    ) {
-        return dailymotionService.sendChannelToVideoMiner(id, maxVideos, maxPages);
+    ) throws ChannelNotFoundException{
+        try {
+            return dailymotionService.sendChannelToVideoMiner(id, maxVideos, maxPages);
+        } catch (Exception e) {
+            throw new ChannelNotFoundException();
+        }
     }
 }
