@@ -4,6 +4,7 @@ import aiss.dailymotionminer.exception.ChannelNotFoundException;
 import aiss.dailymotionminer.models.videoMinerObjects.VMChannel;
 import aiss.dailymotionminer.services.DailymotionService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.*;
 
 @RestController
@@ -29,6 +30,7 @@ public class ChannelController {
 
 
     @PostMapping("/{id}")
+    @ResponseStatus(HttpStatus.CREATED)
     public VMChannel sendChannelToVideoMiner(
             @PathVariable String id,
             @RequestParam(required = false) Integer maxVideos,
