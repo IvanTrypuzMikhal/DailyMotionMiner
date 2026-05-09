@@ -29,7 +29,7 @@ public class ChannelController {
 
     @Operation(
             summary = "Get a Dailymotion channel",
-            description = "Gets a Dailymotion channel by id (e.g., elmundo), optionally including a limited number of videos and tags per video. By default, the limits are 10 videos and 10 tags.",
+            description = "Gets a Dailymotion channel by id (e.g., elmundo), optionally including a limited number of videos and result pages. By default, the limits are 10 videos and 2 pages.",
             tags = { "Dailymotion Channels" }
     )
     @ApiResponses({
@@ -74,10 +74,10 @@ public class ChannelController {
             @RequestParam(defaultValue = "10") Integer maxVideos,
 
             @Parameter(
-                    description = "Maximum number of tags to include per video",
+                    description = "Maximum number of result pages to include",
                     example = "10"
             )
-            @RequestParam(defaultValue = "10") Integer maxPages
+            @RequestParam(defaultValue = "2") Integer maxPages
     ) throws ChannelNotFoundException {
         try {
             return dailymotionService.getChannel(id, maxVideos, maxPages);
@@ -135,10 +135,10 @@ public class ChannelController {
             @RequestParam(defaultValue = "10") Integer maxVideos,
 
             @Parameter(
-                    description = "Maximum number of tags to include per video",
+                    description = "Maximum number of result pages to include",
                     example = "10"
             )
-            @RequestParam(defaultValue = "10") Integer maxPages
+            @RequestParam(defaultValue = "2") Integer maxPages
     ) throws ChannelNotFoundException{
         try {
             return dailymotionService.sendChannelToVideoMiner(id, maxVideos, maxPages);
